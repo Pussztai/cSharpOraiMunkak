@@ -1,0 +1,8 @@
+C:\Users\User\source\repos\manhattanTavolsag\manhattanTavolsag\bin\Debug\manhattanTavolsag.exe.config
+C:\Users\User\source\repos\manhattanTavolsag\manhattanTavolsag\bin\Debug\manhattanTavolsag.exe
+C:\Users\User\source\repos\manhattanTavolsag\manhattanTavolsag\bin\Debug\manhattanTavolsag.pdb
+C:\Users\User\source\repos\manhattanTavolsag\manhattanTavolsag\obj\Debug\manhattanTavolsag.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\manhattanTavolsag\manhattanTavolsag\obj\Debug\manhattanTavolsag.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\manhattanTavolsag\manhattanTavolsag\obj\Debug\manhattanTavolsag.exe
+C:\Users\User\source\repos\manhattanTavolsag\manhattanTavolsag\obj\Debug\manhattanTavolsag.pdb
+C:\Users\User\source\repos\manhattanTavolsag\manhattanTavolsag\obj\Debug\manhattanTavolsag.exe.config
