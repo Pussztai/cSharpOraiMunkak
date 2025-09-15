@@ -173,7 +173,7 @@ namespace CiklusokAlap {
                     counter++;
                     osszeg += szam;
                 }
-            } while (szam > 0);
+            } while (szam > 0 && szam <= 5);
 
             Console.WriteLine(Math.Round((double)osszeg / counter, 2));
         }
