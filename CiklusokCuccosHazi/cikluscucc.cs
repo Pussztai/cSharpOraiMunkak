@@ -1,118 +1,78 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CiklusokAlap {
+namespace Final_boss_hazi {
     internal class Program {
+
         static void Main(string[] args) {
-            //szamigElszamolas();
-            //kiNevetAavegen();
-            //mekegoNyelv();
+            szamigElszamolas();
+            Console.WriteLine();
+            Kettes();
+            Harmas();
+            Console.WriteLine(Negyes());
+            atlagaSzamitas();
+            factorialNumber();
+            checkingInput();
+            menu();
+            osztokSzama();
+            leganygobbOsztoLeastdivisidor();
+            primFelbontas();
+            Console.WriteLine();
+            diofanticEgyenlet();
+            fibonacci();
+            stars();
 
-            //if (primeCheck(7)) {
-            //    Console.WriteLine("prim");
-            //} else {
-            //    Console.WriteLine("összetett szám");
-            //}
-
-            //atlagaSzamitas();
-
-            //factorialNumber();
-
-            //checkingInput();
-
-            //menu();
-
-            //osztokSzama();
-
-            //leganygobbOsztoLeastdivisidor();
-
-            //primFelbontas();
-
-            //diofanticEgyenlet();
-
-            //fibonacci();
-
-            //stars();
         }
-
         static void szamigElszamolas() {
             int szam = Convert.ToInt32(Console.ReadLine());
 
             //szamlalo ciklus
 
             for (int i = 1; i < szam + 1; i++) {
-                if (i == szam) {
-                    Console.Write(i);
-                } else {
-                    Console.Write(i + ", ");
+                Console.Write(i);
+                if (i < szam) {
+                    Console.Write(", ");
                 }
             }
             Console.WriteLine();
 
             for (int i = szam; i > 0; i--) {
-                if (i == 1) {
-                    Console.Write(i);
-                } else {
-                    Console.Write(i + ", ");
+                Console.Write(i);
+                if (i > 1) {
+                    Console.Write(", ");
                 }
             }
 
             //elotesztelo ciklus
+            Console.WriteLine();
 
 
-            //int i = 1;
-            //while(i < szam + 1) {
-            //    if (i == szam) {
-            //        Console.Write(i);
-            //    } else {
-            //        Console.Write(i + ", ");
-            //    }
-            //    i++;
-            //}
-            //Console.WriteLine();
+            int j = 1;
+            while (j < szam + 1) {
+                Console.Write(j);
+                if (j < szam) {
+                    Console.Write(", ");
+                }
+                j++;
+            }
+            Console.WriteLine();
 
-
-            //while (szam > 0) {
-            //    if (szam == 1) {
-            //        Console.Write(szam);
-            //    } else {
-            //        Console.Write(szam + ", ");
-            //    }
-
-
-            //    szam--;
-            //}
-
-            //int i = 1;
-            //do {
-            //    if (i == szam) {
-            //        Console.Write(i);
-            //    } else {
-            //        Console.Write(i + ", ");
-            //    }
-            //    i++;
-            //} while (i < szam + 1);
-
-            //Console.WriteLine();
-
-            //do {
-            //    if (szam == 1) {
-            //        Console.Write(szam);
-            //    } else {
-            //        Console.Write(szam + ", ");
-            //    }
-            //    szam--;
-            //} while (szam > 0);
-
-
+            int k = 1;
+            do {
+                Console.Write(k);
+                if (k < szam) {
+                    Console.Write(", ");
+                }
+                k++;
+            } while (k < szam + 1);
         }
-
-        //2.feladat
-
-        static void kiNevetAavegen() {
+        
+        static void Kettes() {
+            Console.WriteLine("Kettes feladat (dobokocka)");
             Random rnd = new Random();
             int szam = 6;
             int counter = 0;
@@ -125,45 +85,44 @@ namespace CiklusokAlap {
                 }
             }
             Console.WriteLine($"Hanyszor lephettunk volna ki: {counter}");
-
         }
-
-        static void mekegoNyelv() {
-            int counterEÉbetuk = 0;
-            int maganHangzok = 0;
-            string szoveg = "Ez egy nagyon elegáns feladat!";
-
-            for (int i = 0; i < szoveg.Length; i++) {
-                char c = char.ToLower(szoveg[i]);
-                if (c == 'e' || c == 'é') {
-                    counterEÉbetuk++;
-                } else {
-                    string maganhangzok = "aáeéiíoóöőuúüű";
-                    for (int j = 0; j < maganhangzok.Length; j++) {
-                        if (c == maganhangzok[j]) {
-                            maganHangzok++;
-                        }
-
+        static void Harmas() {
+            Console.WriteLine("harmas feladat (mekegő nyelv)");
+            string vowels = "aeiouáéíóöőúüű";
+            string m = Console.ReadLine();
+            float ecount = 0;
+            float mcount = 0;
+            foreach (char e in m) {
+                char x = char.ToLower(e);
+                if (vowels.Contains(x.ToString())) {
+                    mcount += 1;
+                    if (x == 'e' || x == 'é') {
+                        ecount += 1;
                     }
                 }
             }
 
-            Console.WriteLine((int)Math.Round((double)counterEÉbetuk * 100 / (counterEÉbetuk + maganHangzok)));
+            if (mcount > 0) {
+                Console.WriteLine($"{(ecount / mcount) * 100}%");
+            } else {
+                Console.WriteLine("Nincs magánhangzó!");
+            }
         }
+        static bool Negyes() {
+            Console.WriteLine("Negyes feladat (Primszam)");
+            int pvn = Convert.ToInt32(Console.ReadLine());
 
-
-        static bool primeCheck(int szam) {
-            //int szam = 7;
-            for (int i = 2; i < szam + 1; i += 2) {
-                if (i % szam == 0) {
+            for (int i = 2; i < pvn; i++) {
+                if (pvn % i == 0) {
                     return false;
-
                 }
             }
             return true;
-        }
 
+
+        }
         static void atlagaSzamitas() {
+            Console.WriteLine("otos feladat (atlag)");
             int counter = 0;
             int osszeg = 0;
             int szam;
@@ -172,14 +131,20 @@ namespace CiklusokAlap {
                 if (szam > 0) {
                     counter++;
                     osszeg += szam;
-                }
+                } 
             } while (szam > 0 && szam <= 5);
 
-            Console.WriteLine(Math.Round((double)osszeg / counter, 2));
+            if(counter == 0) {
+                Console.WriteLine("nem irtal be pozitiv szamot");
+            } else {
+                Console.WriteLine(Math.Round((double)osszeg / counter, 2));
+            }
+                
         }
 
         static void factorialNumber() {
-            int szam = 6;
+            Console.WriteLine("hatos feladat (factorial)");
+            int szam = Convert.ToInt32(Console.ReadLine());
             int osszeg = 1;
             for (int i = 1; i < szam + 1; i++) {
                 osszeg *= i;
@@ -189,6 +154,7 @@ namespace CiklusokAlap {
         }
 
         static void checkingInput() {
+            Console.WriteLine("Hetes feladat (Szuletesi ev)");
             int szuletesiEv;
 
 
@@ -203,55 +169,41 @@ namespace CiklusokAlap {
         }
 
         static void menu() {
-            bool isRunning = true;
-            bool isNameIsGiven = false;
-            string choice;
-            string nev = "";
-            while (isRunning) {
-                Console.WriteLine("1 – Add meg a nevet");
-                Console.WriteLine("2 – Üdv {0}!");
-                Console.WriteLine("3 – Helló {0}!");
-                Console.WriteLine("4 – Szia {0}!");
-                Console.WriteLine("5 – Kilépés.");
-                choice = Console.ReadLine();
-                switch (choice) {
-                    case "1":
-                        nev = Console.ReadLine();
-                        isNameIsGiven = true; break;
-                    case "2":
-                        if (isNameIsGiven) {
-                            Console.WriteLine($"Üdv {nev}");
-                        } else {
-                            Console.WriteLine("Nem adtal meg nevet");
-                        }
-                        break;
-                    case "3":
-                        if (isNameIsGiven) {
-                            Console.WriteLine($"Helló {nev}");
-                        } else {
-                            Console.WriteLine("Nem adtal meg nevet");
-                        }
-                        break;
-                    case "4":
-                        if (isNameIsGiven) {
-                            Console.WriteLine($"Szia {nev}");
-                        } else {
-                            Console.WriteLine("Nem adtal meg nevet");
-                        }
-                        break;
-                    case "5":
-                        isRunning = false;
-                        Console.WriteLine("Viszlát!"); break;
-                    default:
-                        Console.WriteLine("Adj meg normalis opciot"); break;
-                }
+            Console.WriteLine("8# Menü");
 
+            Console.WriteLine("1 – Add meg a nevet");
+            Console.WriteLine("2 – Üdv {0}!");
+            Console.WriteLine("3 – Helló {0}!");
+            Console.WriteLine("4 – Szia {0}!");
+            Console.WriteLine("5 – Kilépés.");
+            char utasitas;
+            string n = null;
+
+
+            do {
+                utasitas = Convert.ToChar(Console.ReadLine());
+                if (utasitas == '1') {
+                    n = Console.ReadLine();
+                }
+                if (utasitas == '2' || utasitas == '3' || utasitas == '4') {
+                    if (string.IsNullOrEmpty(n)) {
+                        Console.WriteLine("Először add meg a nevet!");
+                    } else if (utasitas == '2') {
+                        Console.WriteLine($"Üdv {n}!");
+                    } else if (utasitas == '3') {
+                        Console.WriteLine($"Helló {n}!");
+                    } else if (utasitas == '4') {
+                        Console.WriteLine($"Szia {n}!");
+                    }
+                }
             }
+            while (utasitas != '5');
 
         }
 
         static void osztokSzama() {
-            int szam = 6;
+            Console.WriteLine("kilences feladat (osztok szama)");
+            int szam = Convert.ToInt32(Console.ReadLine());
             int counter = 0;
             for (int i = 1; i < szam + 1; i++) {
                 if (szam % i == 0) {
@@ -262,8 +214,12 @@ namespace CiklusokAlap {
         }
 
         static void leganygobbOsztoLeastdivisidor() {
-            int szam1 = 21;
-            int szam2 = 28;
+            Console.WriteLine("tizes feladat (lnko)");
+
+            Console.WriteLine("Lnko 1 szam");
+            int szam1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Lnko 2 szam");
+            int szam2 = Convert.ToInt32(Console.ReadLine());
             int minOszto = 0;
             int hatar = Math.Min(szam1, szam2);
 
@@ -277,7 +233,9 @@ namespace CiklusokAlap {
         }
 
         static void primFelbontas() {
-            int szam = 100;
+            Console.WriteLine("tizeneggyedik feladat (prim felbontas)");
+
+            int szam = Convert.ToInt32(Console.ReadLine());
             int oszto = 2;
 
             while (szam > 1) {
@@ -297,6 +255,7 @@ namespace CiklusokAlap {
         }
 
         static void diofanticEgyenlet() {
+            Console.WriteLine("tizenkettedik diofantik");
             int n = 7;
             int m = 11;
             int k = 118;
@@ -316,14 +275,23 @@ namespace CiklusokAlap {
                 x++;
             }
 
+            //ezzel ellenorizzuk hogy egesz szam-egesz az eredmeny, kulonben vegtelen ciklusba kerulunk 
+            //(Csoves expection)
 
-            int y = (k - n * x) / m;
-            Console.WriteLine($"x = {x} y = {y}");
+
+            if ((k - n * x) % m == 0) {
+                int y = (k - n * x) / m;
+                Console.WriteLine($"x = {x}, y = {y} van megoldás");
+            } else {
+                Console.WriteLine("nincs megoldás");
+            }
+
+
 
         }
 
         static void fibonacci() {
-
+            Console.WriteLine("tizenharmadik (fibo)");
 
             int fibo1 = 0;
             int fibo2 = 1;
@@ -340,6 +308,8 @@ namespace CiklusokAlap {
         }
 
         static void stars() {
+            Console.WriteLine("tizennegyedik (csillagok)");
+
             int szam = 4;
 
             for (int i = 1; i <= szam; i++) {
@@ -395,36 +365,22 @@ namespace CiklusokAlap {
 
 
             for (int i = 1; i <= szam; i++) {
-                
+
                 for (int s = 0; s < szam - i; s++) {
                     Console.Write(" ");
                 }
 
-                
+
                 for (int j = 0; j < 2 * i - 1; j++) {
                     Console.Write("*");
                 }
 
-                
+
                 Console.WriteLine();
 
 
 
             }
-
-
-
-
-
-
-
-
-
-
-
         }
     }
 }
-
-
-
