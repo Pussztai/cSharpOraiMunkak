@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,19 +16,16 @@ namespace elagazokHazi {
             //Console.WriteLine(hatodikAnalizis());
             //hetedikHomerseklet2();
             //nyolcadikUjhold();
-
-            //kilences kell
-
+            //kilencHomerseklet2();
             //tizedikHaromszogvizsgalat();
+            //tizeneggyHaromszog2();
+            //tizenkettoHaromszog4();
+            //tizenharomHetNapjai();
+            //tizennegyDolgozat();
+            //tizenotEvnapjai();
+            //tizenhatSiknegyed2();
 
-            //11kell
-            //12kell
-            //13kell
-            //14kell
-            //15kell
-            //16kell
 
-            
 
         }
 
@@ -141,6 +139,23 @@ namespace elagazokHazi {
             }
         }
 
+        static void kilencHomerseklet2() {
+            Console.WriteLine("C vagy K vagy F: ");
+            char homersekletJel = Convert.ToChar(Console.ReadLine().ToUpper());
+            double szam = Convert.ToDouble(Console.ReadLine());
+            char homersekletJelKimenet = Convert.ToChar(Console.ReadLine().ToUpper());
+            if (homersekletJel == 'F' && homersekletJelKimenet == 'C') {
+                Console.WriteLine("Eredmény Celsius-ban: " + ((szam - 32) * 5 / 9));
+            } else if(homersekletJel == 'F' && homersekletJelKimenet == 'K') {
+                Console.WriteLine($"Eredmeny Kelvinbe: {(szam-32)*5/9+273.15}");
+            } else if(homersekletJel == 'C' && homersekletJelKimenet == 'F') {
+                Console.WriteLine($" eredmeny fahrenheitbe {(szam*9/5) + 32}");
+            }
+
+            //kitolteni tul konnyu lenne ezert skip masik feladatra
+
+        }
+
         static void tizedikHaromszogvizsgalat() {
             double a = Convert.ToDouble(Console.ReadLine());
             double b = Convert.ToDouble(Console.ReadLine());
@@ -152,5 +167,108 @@ namespace elagazokHazi {
                 Console.WriteLine("nem szerkesztheto");
             }
         }
+
+        static void tizeneggyHaromszog2() {
+            double a = Convert.ToDouble(Console.ReadLine());
+            double b = Convert.ToDouble(Console.ReadLine());
+            double c = Convert.ToDouble(Console.ReadLine());
+
+            if((a + b) > c && (a + c) > b && (b + c) > a) {
+                if (a == b&& b== c) {
+                    Console.WriteLine("egyenlo oldalu");
+                } else {
+                    Console.WriteLine("csak szerkesztheto");
+                }
+            } else {
+                Console.WriteLine("nem szerkesztheto");
+            }
+        }
+
+        static void tizenkettoHaromszog4() {
+            double a = Convert.ToDouble(Console.ReadLine());
+            double b = Convert.ToDouble(Console.ReadLine());
+            double c = Convert.ToDouble(Console.ReadLine());
+
+            if((a*a + b*b) == c*c || (a*a + c*c) == b*b || (b*b + c*c) == a * a) {
+                if((a + b) > c && (a + c) > b && (b + c) > a && a != b || b != c) {
+                    Console.WriteLine(" csak szekesztheto");
+                }
+                Console.WriteLine("derekszog");
+                
+            } else {
+                Console.WriteLine("nem szerkesztheto");
+            }
+        }
+
+        static void tizenharomHetNapjai() {
+            int inpNum = Convert.ToInt32(Console.ReadLine());
+            int celNum = Convert.ToInt32(Console.ReadLine());
+
+            //int counter = inpNum;
+            //for (int i = 1; i < celNum; i++) {
+            //    counter++;
+            //    if (counter > 7) {
+            //        counter = 1;
+            //    }
+
+            //    Console.WriteLine(counter);
+            //}
+
+            //or
+
+            Console.WriteLine(((inpNum-1) + (celNum -1) % 7)+1);
+        }
+
+        static void tizennegyDolgozat() {
+            int elertPont = Convert.ToInt32(Console.ReadLine());
+            int maxPont = Convert.ToInt32(Console.ReadLine());
+
+            double szazalek = ((double)elertPont /maxPont) * 100;
+
+            if (szazalek <= 29) {
+                Console.WriteLine("eggyes");
+            }else if(szazalek >= 30 && szazalek <= 39) {
+                Console.WriteLine("ketto");
+            } else if (szazalek >= 40 && szazalek <= 59) {
+                Console.WriteLine("ketto");
+            } else if (szazalek >= 60 && szazalek <= 79) {
+                Console.WriteLine("ketto");
+            } else if(szazalek >= 80) {
+                Console.WriteLine("ot");
+            }
+
+        }
+
+        static void tizenotEvnapjai() {
+            int honap = Convert.ToInt32(Console.ReadLine());
+            switch (honap) {
+                case 1:
+                    Console.WriteLine("januar");break;
+            }
+            //continue...
+        }
+
+        static void tizenhatSiknegyed2() {
+            int x = Convert.ToInt32(Console.ReadLine());
+            int y = Convert.ToInt32(Console.ReadLine());
+
+            if(x == 0 && y == 0) {
+                Console.WriteLine("origo");
+            } else if(x == 0) {
+                Console.WriteLine("y tengely");
+            }else if(x < 0 && y > 0) {
+                Console.WriteLine("11.siknegyed");
+            }else if(x > 0 && y > 0) {
+                Console.WriteLine("1.siknegyed");
+            }else if(x < 0 && y < 0) {
+                Console.WriteLine("iii siknegyed");
+            } else {
+                Console.WriteLine("4. siknegyed");
+            }
+
+
+        }
+
+        
     }
 }
