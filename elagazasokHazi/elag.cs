@@ -20,12 +20,7 @@ namespace elagazokHazi {
 
             //tizedikHaromszogvizsgalat();
 
-            //11kell
-            //12kell
-            //13kell
-            //14kell
-            //15kell
-            //16kell
+            
 
             
 
