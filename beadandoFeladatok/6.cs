@@ -10,9 +10,9 @@ namespace dogaraGyakszi {
     internal class Program {
         static void Main(string[] args) {
             //numero();
-            masodikF();
+            //masodikF();
             //harmadikF();
-            //negyedikF();
+            negyedikF();
         }
 
         static void numero() {
@@ -46,12 +46,45 @@ namespace dogaraGyakszi {
         }
 
         static void harmadikF() {
-            
+            double[] t = { 27.3, 30.2, 19.2, 26.3, 27.3, 27.2, 27, 10.2 };
+            double osszeg = 0;
+            foreach (int item in t) {
+                osszeg += item;
+            }
+            double atlag = osszeg / t.Length;
+            int nagyobb = 0; int kisebb = 0; int egyenlo = 0;
+            foreach (int item in t) {
+                if (item > atlag) {
+                    nagyobb++;
+                } else if(item < atlag) {
+                    kisebb++;
+                } else {
+                    egyenlo++;
+                }
 
+            }
             
+            if (nagyobb > kisebb && nagyobb > egyenlo) {
+                Console.WriteLine("nagyobbol tobb");
+            }else if(kisebb > nagyobb && kisebb > egyenlo) {
+                Console.WriteLine("kisebbol tobb");
+            } else {
+                Console.WriteLine("egyenlo");
+            }
+
+
+
         }
 
         static void negyedikF() {
+            double[] t = { 27.3, 30.2, 19.2, 26.3, 27.3, 27.2, 27, 10.2 };
+            int i = 0;
+            while(i<t.Length && t[i] >= 0) {
+                i++;
+            }
+            if(i < t.Length) Console.WriteLine("teli honap");
+            else Console.WriteLine("nem teli honap");
+
             
         }
 
